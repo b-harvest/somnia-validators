@@ -1,0 +1,20 @@
+{
+  "name": "somnia-validators",
+  "version": "1.0.0",
+  "description": "Community-driven registry of Somnia Network validators",
+  "scripts": {
+    "validate": "node validate.js",
+    "test": "npm run validate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/somnia-validators.git"
+  },
+  "keywords": [
+    "somnia",
+    "validators",
+    "blockchain",
+    "registry"
+  ],
+  "license": "MIT"
+}
