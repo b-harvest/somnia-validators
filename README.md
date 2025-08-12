@@ -8,11 +8,17 @@ A community-driven registry of Somnia Network validators. This repository allows
 
 Click the "Fork" button at the top right of this repository to create your own copy.
 
-### Step 2: Add your profile image
+### Step 2: Add your images
 
+#### Profile Image
 1. Navigate to the `testnet/images/` directory
 2. Upload your validator's profile image with the filename: `[your-validator-address].png` (or `.jpg`, `.svg`)
 3. Recommended image size: 200x200px or larger, square format
+
+#### Background Image (Optional)
+1. Navigate to the `testnet/background/` directory
+2. Upload your validator's background image with the filename: `[your-validator-address].png` (or `.jpg`, `.svg`)
+3. Recommended image size: 1920x1080px or similar wide format
 
 ### Step 3: Create your validator profile
 
@@ -24,7 +30,8 @@ Click the "Fork" button at the top right of this repository to create your own c
 {
     "moniker": "Your Validator Name",
     "details": "Brief description of your validator",
-    "profile_image_url": "./images/[your-validator-address].png",
+    "profile": "./images/[your-validator-address].png",
+    "background": "./background/[your-validator-address].png",
     "contact": {
         "email": "your-email@example.com",
         "website": "https://your-website.com"
@@ -36,7 +43,8 @@ Click the "Fork" button at the top right of this repository to create your own c
 
 - **moniker**: Your validator's display name
 - **details**: A brief description of your validator and services
-- **profile_image_url**: Relative path to your validator's profile image (should match your uploaded image)
+- **profile**: Relative path to your validator's profile image (should match your uploaded image)
+- **background**: Relative path to your validator's background image (optional)
 - **contact.email**: Your contact email
 - **contact.website**: Your validator's website
 
@@ -50,7 +58,7 @@ Click the "Fork" button at the top right of this repository to create your own c
 ### Guidelines
 
 - Ensure all URLs are accessible and working
-- Profile images should be in PNG, JPG, or SVG format (max 1MB file size)
+- Profile and background images should be in PNG, JPG, or SVG format (max 1MB file size for profile, max 2MB for background)
 - Use the same filename for both your JSON profile and image (with appropriate extensions)
 - Keep descriptions concise and professional
 - Make sure your JSON file is valid and properly formatted

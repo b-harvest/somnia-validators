@@ -1,7 +1,8 @@
 {
     "moniker": "Your Validator Name",
     "details": "Brief description of your validator",
-    "profile_image_url": "./images/[your-validator-address].png",
+    "profile": "./images/[your-validator-address].png",
+    "background": "./background/[your-validator-address].png",
     "contact": {
         "email": "your-email@example.com",
         "website": "https://your-website.com"

@@ -17,8 +17,13 @@ function validateValidatorProfile(filePath) {
             errors.push('Missing or invalid details');
         }
         
-        if (!profile.profile_image_url || typeof profile.profile_image_url !== 'string') {
-            errors.push('Missing or invalid profile_image_url');
+        if (!profile.profile || typeof profile.profile !== 'string') {
+            errors.push('Missing or invalid profile');
+        }
+        
+        // Background is optional but validate if present
+        if (profile.background && typeof profile.background !== 'string') {
+            errors.push('Invalid background field (should be a string)');
         }
         
         if (!profile.contact || typeof profile.contact !== 'object') {
@@ -33,15 +38,26 @@ function validateValidatorProfile(filePath) {
         }
         
         // Validate image path format
-        if (profile.profile_image_url && !profile.profile_image_url.startsWith('./images/')) {
-            errors.push('profile_image_url should start with "./images/"');
+        if (profile.profile && !profile.profile.startsWith('./images/')) {
+            errors.push('profile should start with "./images/"');
         }
         
-        // Check if image file exists
-        if (profile.profile_image_url && profile.profile_image_url.startsWith('./images/')) {
-            const imagePath = path.join(path.dirname(filePath), profile.profile_image_url);
+        if (profile.background && !profile.background.startsWith('./background/')) {
+            errors.push('background should start with "./background/"');
+        }
+        
+        // Check if image files exist
+        if (profile.profile && profile.profile.startsWith('./images/')) {
+            const imagePath = path.join(path.dirname(filePath), profile.profile);
             if (!fs.existsSync(imagePath)) {
-                errors.push(`Referenced image file does not exist: ${profile.profile_image_url}`);
+                errors.push(`Referenced profile image does not exist: ${profile.profile}`);
+            }
+        }
+        
+        if (profile.background && profile.background.startsWith('./background/')) {
+            const backgroundPath = path.join(path.dirname(filePath), profile.background);
+            if (!fs.existsSync(backgroundPath)) {
+                errors.push(`Referenced background image does not exist: ${profile.background}`);
             }
         }
         
