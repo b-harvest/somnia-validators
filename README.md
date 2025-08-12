@@ -87,6 +87,3 @@ npm run validate
 
 This will check all validator profiles for proper formatting and required fields.
 
-## Support
-
-If you need help with your submission, please open an issue or contact us through our community channels.
