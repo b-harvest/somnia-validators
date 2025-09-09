@@ -69,10 +69,8 @@ jobs:
               body: '✅ **Validation Passed**\n\nYour validator profile has been successfully validated!'
             });
 
-  # Additional job for file naming check
   check-filenames:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
 
     steps:
       - name: Checkout code
@@ -80,7 +78,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check for uppercase filenames
+      - name: Check for uppercase filenames (PR)
+        if: github.event_name == 'pull_request'
         run: |
           echo "Checking for uppercase filenames in testnet/ and mainnet/..."
           
@@ -105,7 +104,29 @@ jobs:
             echo "✅ All filenames are lowercase"
           fi
 
-  # Status check that blocks merge
+      - name: Check for uppercase filenames (Push)
+        if: github.event_name == 'push'
+        run: |
+          echo "Checking all JSON filenames in testnet/ and mainnet/..."
+          
+          UPPERCASE_FILES=""
+          for file in testnet/*.json mainnet/*.json; do
+            if [ -f "$file" ]; then
+              filename=$(basename "$file")
+              if [[ "$filename" != "validator-template.json" ]] && [[ "$filename" != "${filename,,}" ]]; then
+                UPPERCASE_FILES="$UPPERCASE_FILES\n  - $file (should be: $(dirname $file)/${filename,,})"
+              fi
+            fi
+          done
+          
+          if [ ! -z "$UPPERCASE_FILES" ]; then
+            echo "❌ Found files with uppercase characters:"
+            echo -e "$UPPERCASE_FILES"
+            exit 1
+          else
+            echo "✅ All filenames are lowercase"
+          fi
+
   validation-status:
     runs-on: ubuntu-latest
     needs: [validate, check-filenames]
