@@ -3,7 +3,6 @@
 ### Validator Information
 - **Validator Name**: 
 - **Validator Address**: 
-- **Moniker**: 
 
 ### Checklist
 Please ensure you have completed the following before submitting:
