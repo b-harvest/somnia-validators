@@ -83,8 +83,14 @@ jobs:
         run: |
           echo "Checking for uppercase filenames in testnet/ and mainnet/..."
           
-          # Get changed files in PR
-          CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
+          # Fetch the base branch to ensure we have all necessary commits
+          git fetch origin ${{ github.base_ref }}
+          
+          # Get all changed files in the entire PR (comparing base branch to PR head)
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          
+          echo "Changed files in PR:"
+          echo "$CHANGED_FILES"
           
           UPPERCASE_FILES=""
           for file in $CHANGED_FILES; do
