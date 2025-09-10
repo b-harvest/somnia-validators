@@ -1,0 +1,10 @@
+{
+    "moniker": "B-Harvest",
+    "details": "Provides secure validation services for dPoS networks",
+    "profile": "./images/0xf2d163cd781a3b0b5f0e161cdab45e8edbb06cef.png",
+    "background": "./background/0xf2d163cd781a3b0b5f0e161cdab45e8edbb06cef.png",
+    "contact": {
+        "email": "contact@bharvest.io",
+        "website": "https://bharvest.io"
+    }
+}
