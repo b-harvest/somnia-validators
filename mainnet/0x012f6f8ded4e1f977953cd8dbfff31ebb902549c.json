@@ -1,0 +1,10 @@
+{
+    "moniker": "Somnia-2",
+    "details": "The Dream Computer For A Fully Onchain World",
+    "profile": "./images/0x012f6f8ded4e1f977953cd8dbfff31ebb902549c.png",
+    "background": "./background/0x012f6f8ded4e1f977953cd8dbfff31ebb902549c.png",
+    "contact": {
+        "email": "developers@somnia.network",
+        "website": "https://somnia.network"
+    }
+}
