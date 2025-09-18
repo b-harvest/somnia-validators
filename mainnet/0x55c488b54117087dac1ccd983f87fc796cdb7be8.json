@@ -1,0 +1,10 @@
+{
+    "moniker": "Moonlet",
+    "details": "We bring the future of Web3 infrastructure. AI-driven, compliant, reliable, more than just code.",
+    "profile": "./images/0x55c488b54117087dac1ccd983f87fc796cdb7be8.png",
+    "background": "./background/0x55c488b54117087dac1ccd983f87fc796cdb7be8.png",
+    "contact": {
+        "email": "team@moonlet.io",
+        "website": "https://moonlet.io/"
+    }
+}
