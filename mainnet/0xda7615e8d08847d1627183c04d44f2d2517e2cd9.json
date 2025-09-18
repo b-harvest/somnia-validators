@@ -1,0 +1,10 @@
+{
+    "moniker": "Somnia-Ecosystem-1",
+    "details": "The Dream Computer For A Fully Onchain World",
+    "profile": "./images/0xda7615e8d08847d1627183c04d44f2d2517e2cd9.png",
+    "background": "./background/0xda7615e8d08847d1627183c04d44f2d2517e2cd9.png",
+    "contact": {
+        "email": "developers@somnia.network",
+        "website": "https://somnia.network"
+    }
+}
