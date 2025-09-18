@@ -9,7 +9,7 @@ on:
       - 'testnet/**/*.json'
       - 'mainnet/**/*.json'
       - 'validate.js'
-      - '.github/workflows/validate-profiles.yml'
+      - '.github/workflows/validator-profile-validation.yml'
   push:
     branches:
       - main
