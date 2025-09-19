@@ -35,39 +35,6 @@ jobs:
       - name: Run validation script
         run: node validate.js
 
-      - name: Comment PR on failure
-        if: failure() && github.event_name == 'pull_request'
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const issue_number = context.issue.number;
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-            
-            await github.rest.issues.createComment({
-              owner,
-              repo,
-              issue_number,
-              body: '❌ **Validation Failed**\n\nYour validator profile has validation errors. Please check the workflow logs for details.\n\n**Common issues:**\n- Filename must be all lowercase\n- Required fields: moniker, details, profile, contact.email, contact.website\n- Image paths must start with `./images/` or `./background/`\n- Referenced image files must exist'
-            });
-
-      - name: Comment PR on success
-        if: success() && github.event_name == 'pull_request'
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const issue_number = context.issue.number;
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-            
-            await github.rest.issues.createComment({
-              owner,
-              repo,
-              issue_number,
-              body: '✅ **Validation Passed**\n\nYour validator profile has been successfully validated!'
-            });
 
   check-filenames:
     runs-on: ubuntu-latest
